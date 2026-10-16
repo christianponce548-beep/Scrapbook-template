@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f3ed">
+  <meta name="description" content="A hand-delivered thank-you letter for our adviser, from the St George class.">
+  <title>A Letter for You — St George</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="thankyou_letter.css">
+  <script src="thankyou_letter.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
+  <header class="letter-topbar">
+    <a class="back-link" href="adviser.html"><span aria-hidden="true">←</span> BACK TO OUR ADVISER</a>
+    <a class="letter-wordmark" href="adviser.html" aria-label="St George class memory book">SG <span>CLASS MEMORY BOOK · 2026—27</span></a>
+  </header>
+
+  <main>
+    <section class="delivery-scene" id="delivery-scene" aria-labelledby="delivery-title">
+      <div class="scene-copy">
+        <p class="eyebrow"><span></span> HAND-DELIVERED WITH LOVE</p>
+        <h1 id="delivery-title">A little note,<br>just for <em>you.</em></h1>
+        <p class="scene-intro">We tucked all our thanks into this envelope. It’s been waiting to find its way to you.</p>
+      </div>
+
+      <div class="handoff-stage">
+        <span class="stage-sparkle sparkle-left" aria-hidden="true">✦</span>
+        <span class="stage-sparkle sparkle-right" aria-hidden="true">✳</span>
+        <span class="stage-orbit orbit-one" aria-hidden="true"></span>
+        <span class="stage-orbit orbit-two" aria-hidden="true"></span>
+        <svg class="offering-hand" viewBox="0 0 360 250" role="img" aria-label="An illustrated hand offering an envelope">
+          <path class="hand-sleeve" d="M0 164c38-17 71-31 111-37l45 46-25 43H0z"/>
+          <path class="hand-cuff" d="m103 129 28-10 35 46-24 28-31-11z"/>
+          <path class="hand-skin" d="M118 151c24-12 50-22 76-31l42-14c8-3 15 1 15 7 0 5-4 9-10 11l-29 11 47-13c9-2 15 2 15 8 0 5-4 9-10 11l-42 13 43-7c9-1 14 4 13 10-1 5-5 8-11 9l-41 8 31 1c9 0 13 5 11 11-2 5-7 7-14 8l-43 4c-25 2-48-2-69-12l-32-15z"/>
+          <path class="hand-detail" d="m212 133 31-9m-23 24 34-5m-37 20 31 1"/>
+          <path class="hand-cuff-line" d="m120 126 34 42"/>
+        </svg>
+
+        <div class="envelope-arrival" id="envelope-arrival">
+          <button class="envelope-button" id="open-letter" type="button" aria-label="Open the envelope and read your letter">
+            <span class="envelope-paper" aria-hidden="true"></span>
+            <span class="envelope-flap" aria-hidden="true"></span>
+            <span class="envelope-fold envelope-fold-left" aria-hidden="true"></span>
+            <span class="envelope-fold envelope-fold-right" aria-hidden="true"></span>
+            <span class="envelope-fold envelope-fold-bottom" aria-hidden="true"></span>
+            <span class="envelope-seal" aria-hidden="true">♥</span>
+            <span class="envelope-cta">OPEN ME <span aria-hidden="true">↗</span></span>
+          </button>
+        </div>
+      </div>
+      <p class="scene-hint"><span aria-hidden="true">↗</span> TAP THE ENVELOPE TO READ YOUR LETTER</p>
+      <a class="quiet-back" href="adviser.html">or return to the adviser page</a>
+    </section>
+
+    <section class="letter-view" id="letter-view" aria-labelledby="letter-title" hidden>
+      <div class="letter-heading">
+        <p class="eyebrow"><span></span> A LETTER FROM YOUR ST GEORGE CLASS</p>
+        <h1 id="letter-title" tabindex="-1">For our <em>adviser.</em></h1>
+        <p>Take your time. This one comes from all of us.</p>
+      </div>
+
+      <article class="letter-sheet" id="letter-sheet">
+        <div class="letter-topline"><span>ST GEORGE · WITH GRATITUDE</span><span id="letter-date">A YEAR WE’LL REMEMBER</span></div>
+        <div class="letter-stamp" aria-label="Sealed with love">SG<br><span>♥</span></div>
+        <p class="salutation">Dear Adviser,</p>
+        <div class="letter-copy" id="letter-copy">
+          <p>Somehow, a whole school year can fly by in a blink. Before it does, we wanted to pause and say what we should say more often: <strong>thank you.</strong></p>
+          <p>Thank you for greeting us each day, guiding us when we weren’t sure of the way, and reminding us that we were capable of more than we thought. Your patience made room for our questions, your encouragement helped us try again, and your care made our classroom feel like a place where we belonged.</p>
+          <p>You gave us more than lessons. You gave us the confidence to grow, the courage to make mistakes and learn from them, and so many ordinary days that turned into memories we’ll keep. We’ll carry your advice and kindness with us long after this year is over.</p>
+          <p>We hope this little collection of moments reminds you how much you mean to us. We are grateful for every bit of time, heart, and faith you gave our class.</p>
+        </div>
+        <div class="letter-signoff"><p>With all our appreciation,</p><p class="handwriting">Your St George class <span aria-hidden="true">♥</span></p></div>
+
+        <button class="postscript-toggle" id="postscript-toggle" type="button" aria-expanded="false" aria-controls="postscript-note"><span class="wax-seal" aria-hidden="true">P.S.</span><span>There’s a little something on the back…</span><span class="postscript-chevron" aria-hidden="true">＋</span></button>
+        <div class="postscript-note" id="postscript-note" hidden><p class="handwriting">P.S. No matter how far we go, we’ll always be cheering for you, too.</p><span aria-hidden="true">✳</span></div>
+      </article>
+
+      <section class="memory-add" aria-labelledby="memory-title">
+        <div class="memory-heading">
+          <p class="eyebrow"><span></span> OUR YEAR, IN LITTLE MOMENTS</p>
+          <h2 id="memory-title">A few memories<br>to keep <em>close.</em></h2>
+          <p>Give this letter a photo album of its own. Add the moments you want to remember.</p>
+        </div>
+        <div class="photo-dropzone" id="photo-dropzone" tabindex="0" role="group" aria-label="Choose or drop photos to add to the letter">
+          <input class="photo-input" id="photo-picker" type="file" accept="image/*" multiple tabindex="-1" aria-hidden="true">
+          <div class="dropzone-empty" id="dropzone-empty">
+            <span class="photo-plus" aria-hidden="true">＋</span>
+            <strong>Drop your photos here</strong>
+            <span>or <button class="text-button" id="choose-photos" type="button">choose from your device</button></span>
+            <small>Choose up to 8 photos · JPG, PNG, WEBP and more</small>
+          </div>
+          <div class="photo-wall" id="photo-wall" aria-live="polite"></div>
+        </div>
+        <p class="photo-note">Photos are previewed in this browser and aren’t uploaded anywhere.</p>
+      </section>
+
+      <div class="letter-actions" aria-label="Letter actions">
+        <button class="action-button action-copy" id="copy-letter" type="button"><span aria-hidden="true">▣</span> Copy this letter</button>
+        <button class="action-button action-print" id="print-letter" type="button"><span aria-hidden="true">↗</span> Print / save as PDF</button>
+        <button class="action-button action-heart" id="send-heart" type="button"><span aria-hidden="true">♥</span> Send a little love</button>
+      </div>
+      <a class="end-link" href="adviser.html"><span aria-hidden="true">←</span> BACK TO THE ADVISER PAGE</a>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="heart-burst" id="heart-burst" aria-hidden="true"></div>
+</body>
+</html>

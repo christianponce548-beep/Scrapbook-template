@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#f7f0e7">
+        <meta name="description" content="Turn the key and open a little album of St George memories.">
+        <title>A Little Something Awaits | St George</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="animationkey.css">
+    </head>
+    <body>
+        <main id="keyScreen" class="screen key-screen" aria-labelledby="introTitle">
+            <div class="ambient ambient-one" aria-hidden="true"></div>
+            <div class="ambient ambient-two" aria-hidden="true"></div>
+            <span class="corner-note" aria-hidden="true">A KEEPSAKE FROM ST GEORGE</span>
+
+            <div class="intro-copy">
+                <p class="eyebrow"><span></span> MADE OF LITTLE MOMENTS</p>
+                <h1 class="intro-title" id="introTitle">A little something<br><em>is waiting.</em></h1>
+                <p class="intro-description">There are memories tucked away inside.<br>Turn the key to take a look.</p>
+            </div>
+
+            <div class="key-scene" aria-label="A golden key and a little lock">
+                <span class="scene-star star-one" aria-hidden="true">✦</span>
+                <span class="scene-star star-two" aria-hidden="true">✳</span>
+                <button type="button" class="key-position" id="keyPosition" aria-label="Turn the golden key to unlock the album">
+                    <svg id="key" class="key" viewBox="0 0 120 190" aria-hidden="true" focusable="false">
+                        <defs>
+                            <linearGradient id="keyGold" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#fff0b1" />
+                                <stop offset=".42" stop-color="#d9a94f" />
+                                <stop offset="1" stop-color="#a8732c" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="39" r="27" fill="none" stroke="url(#keyGold)" stroke-width="11" />
+                        <circle cx="60" cy="39" r="8" fill="none" stroke="#f5d98f" stroke-width="2" opacity=".9" />
+                        <path d="M60 67v93h20v-14H69v-13h11v-14H60" fill="url(#keyGold)" stroke="#9b6d2c" stroke-width="2" stroke-linejoin="round" />
+                        <path d="M55 73v78" fill="none" stroke="#fff0b1" stroke-width="2" opacity=".7" />
+                    </svg>
+                </button>
+                <div class="lock" id="lock" aria-hidden="true">
+                    <div class="shackle"></div>
+                    <div class="lock-body">
+                        <div class="keyhole"></div>
+                        <span class="lock-glint"></span>
+                    </div>
+                </div>
+                <span class="scene-caption" aria-hidden="true">A little wonder, waiting to be found</span>
+            </div>
+
+            <button type="button" id="unlockButton" class="prompt">
+                <span class="prompt-icon" aria-hidden="true">✧</span>
+                <span>Turn the key</span>
+                <span class="prompt-arrow" aria-hidden="true">↓</span>
+            </button>
+            <p class="screen-footnote">A COLLECTION OF OUR FAVORITE DAYS <span>·</span> 2026—27</p>
+        </main>
+
+        <main id="bookScreen" class="screen book-screen hidden" aria-labelledby="bookTitle" aria-hidden="true">
+            <div class="ambient ambient-one" aria-hidden="true"></div>
+            <div class="ambient ambient-two" aria-hidden="true"></div>
+            <span class="corner-note" aria-hidden="true">YOUR STORY, PRESERVED</span>
+
+            <div class="book-copy">
+                <p class="eyebrow"><span></span> THE NEXT CHAPTER</p>
+                <h1 class="book-title" id="bookTitle">A book of <em>memories.</em></h1>
+                <p class="book-description">Every page holds a little something.<br>Open the cover and step inside.</p>
+            </div>
+
+            <button type="button" class="book-button" id="bookButton" aria-label="Open the Georgians memory album" aria-describedby="bookPrompt">
+                <span class="book-halo" aria-hidden="true"></span>
+                <span class="book">
+                    <span class="book-pages" aria-hidden="true">
+                        <span class="page page-left"></span>
+                        <span class="page page-right"></span>
+                    </span>
+                    <span class="page-edges" aria-hidden="true"></span>
+                    <span class="book-cover" id="bookCover" aria-hidden="true">
+                        <span class="cover-emblem">SG</span>
+                        <span class="cover-rule"></span>
+                        <span class="cover-title">Georgians</span>
+                        <span class="cover-subtitle">A collection of memories</span>
+                        <span class="cover-year">SCHOOL YEAR · 2026—27</span>
+                    </span>
+                </span>
+            </button>
+
+            <p class="book-prompt" id="bookPrompt">Tap the album to open <span aria-hidden="true">↗</span></p>
+            <p class="screen-footnote">SOME YEARS STAY WITH US <span>·</span> ST GEORGE</p>
+            <p class="sr-only" id="transitionStatus" aria-live="polite"></p>
+        </main>
+
+        <script src="key.js"></script>
+    </body>
+</html>

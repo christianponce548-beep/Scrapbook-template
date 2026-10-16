@@ -1,0 +1,289 @@
+.student-card .student-review-open {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 5px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid #e7d8cf;
+  border-radius: 2px;
+  background: #f4ece4;
+  color: var(--plum);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .35px;
+  transition: color .2s, background .2s, border-color .2s, transform .2s, box-shadow .2s;
+}
+
+.student-card .student-review-open b { color: var(--rose); font-size: 15px; font-weight: 400; }
+.student-card .student-review-open:hover { transform: translateY(-2px); border-color: var(--plum); background: var(--plum); color: #fffaf5; box-shadow: 0 7px 15px #52354b1c; }
+.student-card .student-review-open:hover b { color: #f3c2ad; }
+.student-card .student-review-open:focus-visible,
+.student-review-close:focus-visible,
+.student-review-flip:focus-visible,
+.student-review-card:focus-visible { outline: 3px solid #d78884; outline-offset: 4px; }
+
+.student-review-dialog {
+  width: min(860px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.student-review-dialog::backdrop { background: #211820d9; backdrop-filter: blur(7px); }
+.student-review-dialog[open] .student-review-panel { animation: review-panel-arrive .42s cubic-bezier(.2,.8,.2,1) both; }
+
+.student-review-panel {
+  position: relative;
+  padding: 28px clamp(18px, 4vw, 38px) 22px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 94% 7%, #ead6cc 0, transparent 24%), #f8f3ed;
+  border: 1px solid #fff9f2;
+  box-shadow: 0 28px 90px #160f1870;
+}
+
+.student-review-panel::after {
+  content: "✳";
+  position: absolute;
+  right: -17px;
+  bottom: -78px;
+  color: #d7888414;
+  font-size: 220px;
+  line-height: 1;
+  pointer-events: none;
+  transform: rotate(-17deg);
+}
+
+.student-review-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 19px; }
+.student-review-kicker { margin: 0 0 7px; color: var(--plum); font-size: 8px; font-weight: 700; letter-spacing: 1.6px; }
+.student-review-header h2 { margin: 0; color: #382d38; font: 500 clamp(29px, 4vw, 40px)/1.05 var(--serif); letter-spacing: -1.3px; }
+.student-review-header h2 em { color: var(--plum); }
+
+.student-review-close {
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e4d7d1;
+  border-radius: 50%;
+  background: #fffaf5;
+  color: var(--plum);
+  cursor: pointer;
+  font-size: 23px;
+  line-height: 1;
+  transition: transform .2s, background .2s;
+}
+
+.student-review-close:hover { transform: rotate(90deg); background: white; }
+.student-review-stage { perspective: 1600px; }
+.student-review-card { width: 100%; aspect-ratio: 1.72 / 1; position: relative; cursor: pointer; outline: none; }
+.student-review-card-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .82s cubic-bezier(.2,.75,.2,1); }
+.student-review-card.is-flipped .student-review-card-inner { transform: rotateY(180deg); }
+
+.student-review-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid #e4d2c4;
+  border-radius: 7px;
+  box-shadow: 0 17px 38px #46313e20;
+}
+
+.student-review-front {
+  grid-template-columns: 33% 1fr;
+  grid-template-rows: 52px 1fr;
+  padding: 16px 20px 17px;
+  gap: 13px 24px;
+  background:
+    radial-gradient(circle at 97% 4%, #d7888420 0 1px, transparent 2px) 0 0 / 15px 15px,
+    linear-gradient(112deg, #fffdf8 0%, #f9f1e8 100%);
+}
+
+.student-review-id-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid #d9bcb080;
+}
+
+.student-review-id-mark,
+.student-review-back-logo {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--plum);
+  color: #fff8ee;
+  font: 600 12px var(--serif);
+  letter-spacing: -.4px;
+  box-shadow: 0 3px 10px #422c3c29;
+}
+
+.student-review-id-brand { display: grid; gap: 2px; color: #382d38; }
+.student-review-id-brand strong { font: 600 16px/1.05 var(--serif); }
+.student-review-id-brand small { color: #8c7777; font-size: 6px; font-weight: 700; letter-spacing: 1.3px; }
+.student-review-id-year { margin-left: auto; color: #987c82; font-size: 7px; font-weight: 700; letter-spacing: 1.2px; }
+
+.student-review-front::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: linear-gradient(90deg, var(--plum) 0 72%, var(--rose) 72% 89%, #c5c8a8 89%);
+}
+
+.student-review-front::before,
+.student-review-back::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #c89f8d66;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.student-review-photo-wrap {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  padding: 7px 7px 31px;
+  background: #fff;
+  box-shadow: 0 7px 19px #4832411a;
+  transform: rotate(-.6deg);
+}
+
+.student-review-photo-wrap img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; filter: saturate(.84); }
+.student-review-photo-wrap > span { position: absolute; left: 0; right: 0; bottom: 8px; color: #8c7777; text-align: center; font: 7px/1.35 var(--serif); letter-spacing: .9px; }
+.student-review-front-copy { min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 8px 30px 8px 0; position: relative; z-index: 1; }
+.student-review-edition,
+.student-review-number,
+.student-review-dob > span,
+.student-review-front-mark { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; }
+.student-review-edition { margin-bottom: 8px; color: #987c82; }
+.student-review-number { color: var(--plum); }
+.student-review-front-copy h3 { max-width: 520px; margin: 7px 0 17px; color: #352d37; font: 500 clamp(22px, 3.8vw, 43px)/1.06 var(--serif); letter-spacing: -1.3px; overflow-wrap: anywhere; }
+.student-review-dob { display: grid; gap: 5px; padding-top: 11px; border-top: 1px solid #d9bcb0; }
+.student-review-dob > span { color: #987c82; }
+.student-review-dob strong { color: #51434d; font: 500 13px var(--sans); }
+.student-review-front-mark { margin-top: auto; padding-top: 12px; color: #9c8589; font-size: 6px; }
+.student-review-corner { position: absolute; right: 26px; bottom: 21px; color: var(--rose); font-size: 20px; }
+
+.student-review-back {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 9px;
+  padding: 16px 23px 14px;
+  background: radial-gradient(ellipse at 50% 52%, #785b65 0, transparent 54%), linear-gradient(135deg, #302435, #50394f 58%, #37283e);
+  transform: rotateY(180deg);
+}
+
+.student-review-back::before { border-color: #d8b76f80; }
+.student-review-back-header { display: flex; align-items: center; gap: 10px; position: relative; z-index: 1; }
+.student-review-back-logo { width: 34px; height: 34px; flex-basis: 34px; background: linear-gradient(145deg, #fff0be, #d4a64e); color: #493649; box-shadow: 0 0 0 2px #efdaa766, 0 3px 10px #21172555; }
+.student-review-back-header > span:nth-child(2) { display: grid; gap: 2px; color: #fff8f1; }
+.student-review-back-header strong { font: 600 14px var(--serif); }
+.student-review-back-header small { color: #e8ce8e; font-size: 6px; font-weight: 700; letter-spacing: 1.4px; }
+.student-review-back-star { margin-left: auto; color: #e7c66f; font-size: 20px; }
+.student-review-back-main { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr); justify-items: center; position: relative; z-index: 1; }
+.student-review-quote-panel { width: min(650px, 90%); margin: 0 auto; align-self: start; text-align: center; }
+.student-review-back-kicker { margin: 0 0 7px; color: #e7c66f; font-size: 7px; font-weight: 700; letter-spacing: 1.6px; }
+.student-review-back blockquote { max-width: 600px; margin: 0 auto; color: #fff8ee; font: italic 500 clamp(16px, 2.8vw, 25px)/1.28 var(--serif); letter-spacing: -.2px; text-wrap: pretty; }
+.student-review-signature-plate { grid-row: 2; width: min(390px, 70%); min-height: 100px; padding: 14px 25px 11px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border: 1px solid #fff0bc; outline: 1px solid #b7893e; outline-offset: -5px; background: linear-gradient(135deg, #f9e5a7 0%, #d0a248 48%, #f2d17a 100%); box-shadow: 0 9px 23px #1d142555, inset 0 1px 0 #fff8da; text-align: center; }
+.student-review-signature-star { position: absolute; top: 8px; right: 12px; color: #8e6429; font-size: 11px; }
+.student-review-signature-caption { color: #79552d; font-size: 6px; font-weight: 700; letter-spacing: 1.8px; }
+.student-review-signature-plate strong { max-width: 100%; margin: 4px 0 5px; color: #483246; font: italic 500 clamp(18px, 2.5vw, 25px)/1.1 var(--serif); overflow-wrap: anywhere; }
+.student-review-signature-line { width: min(245px, 90%); border-top: 1px solid #805d328c; }
+.student-review-signature-label { margin-top: 4px; color: #79552d; font-size: 6px; font-weight: 700; letter-spacing: 1.4px; }
+.student-review-back-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; z-index: 1; color: #d9c293; font-size: 6px; font-weight: 700; letter-spacing: 1.3px; }
+.student-review-back-footer span:last-child { color: #e7c66f; font-size: 11px; }
+
+.student-review-actions { display: flex; justify-content: center; margin-top: 15px; position: relative; z-index: 1; }
+.student-review-flip { min-width: 130px; min-height: 39px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid #d8c2b8; background: #fffaf5; color: var(--plum); cursor: pointer; font: 700 9px var(--sans); letter-spacing: .5px; transition: background .2s, color .2s, transform .2s; }
+.student-review-flip:hover { transform: translateY(-1px); background: var(--plum); color: #fffaf5; }
+.student-review-flip b { color: var(--rose); font-size: 15px; font-weight: 400; }
+.student-review-hint { margin: 9px 0 0; color: #988790; text-align: center; font-size: 9px; }
+
+@keyframes review-panel-arrive {
+  from { opacity: 0; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 700px) {
+  .student-review-open { min-height: 36px; padding: 0 8px; font-size: 8px; }
+  .student-review-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
+  .student-review-panel { padding: 21px 13px 16px; }
+  .student-review-header { margin-bottom: 15px; }
+  .student-review-card { aspect-ratio: 1.42 / 1; }
+  .student-review-front { grid-template-columns: 34% 1fr; grid-template-rows: 42px 1fr; padding: 11px; gap: 10px 12px; }
+  .student-review-id-mark { width: 30px; height: 30px; flex-basis: 30px; font-size: 10px; }
+  .student-review-id-header { gap: 8px; }
+  .student-review-id-brand strong { font-size: 13px; }
+  .student-review-id-brand small { font-size: 5px; letter-spacing: .8px; }
+  .student-review-id-year { font-size: 5px; letter-spacing: .6px; }
+  .student-review-photo-wrap { padding: 5px 5px 24px; }
+  .student-review-photo-wrap > span { bottom: 5px; font-size: 5px; }
+  .student-review-front-copy { padding: 4px 19px 4px 0; }
+  .student-review-edition { margin-bottom: 5px; font-size: 6px; letter-spacing: 1px; }
+  .student-review-number { font-size: 6px; letter-spacing: 1px; }
+  .student-review-front-copy h3 { margin: 6px 0 11px; font-size: clamp(17px, 5vw, 25px); letter-spacing: -.6px; }
+  .student-review-dob { gap: 4px; padding-top: 8px; }
+  .student-review-dob > span { font-size: 6px; letter-spacing: 1px; }
+  .student-review-dob strong { font-size: 10px; }
+  .student-review-front-mark { padding-top: 8px; font-size: 5px; letter-spacing: .8px; }
+  .student-review-corner { right: 16px; bottom: 13px; font-size: 14px; }
+  .student-review-back { gap: 6px; padding: 11px 15px 10px; }
+  .student-review-back-logo { width: 28px; height: 28px; flex-basis: 28px; font-size: 10px; }
+  .student-review-back-header { gap: 7px; }
+  .student-review-back-header strong { font-size: 12px; }
+  .student-review-back-header small { font-size: 5px; letter-spacing: .8px; }
+  .student-review-back-star { font-size: 15px; }
+  .student-review-back-main { grid-template-rows: auto auto; align-content: center; gap: 7px; }
+  .student-review-quote-panel { width: 96%; }
+  .student-review-back-kicker { margin-bottom: 4px; font-size: 5px; }
+  .student-review-back blockquote { font-size: clamp(14px, 3.8vw, 19px); }
+  .student-review-signature-plate { width: 78%; min-height: 77px; padding: 9px 16px 7px; }
+  .student-review-signature-caption { font-size: 5px; letter-spacing: 1.3px; }
+  .student-review-signature-plate strong { margin: 3px 0; font-size: clamp(15px, 4.2vw, 20px); }
+  .student-review-signature-label { margin-top: 3px; font-size: 5px; }
+  .student-review-back-footer { font-size: 5px; letter-spacing: .9px; }
+}
+
+@media (max-width: 390px) {
+  .student-review-card { aspect-ratio: 1.35 / 1; }
+  .student-review-front { grid-template-columns: 31% 1fr; grid-template-rows: 38px 1fr; gap: 8px; padding: 8px; }
+  .student-review-front-copy { padding-right: 15px; }
+  .student-review-front-copy h3 { font-size: 16px; }
+  .student-review-front-mark { letter-spacing: .4px; }
+  .student-review-back { padding: 8px 11px 8px; }
+  .student-review-back-main { gap: 5px; }
+  .student-review-signature-plate { width: 82%; min-height: 71px; }
+}
+
+@media (max-width: 600px) {
+  .site-header .site-nav { gap: 0; }
+  .site-header .nav-link { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-review-dialog[open] .student-review-panel { animation: none; }
+  .student-review-card-inner,
+  .student-card .student-review-open,
+  .student-review-close,
+  .student-review-flip { transition: none; }
+}

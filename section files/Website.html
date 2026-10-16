@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f3ed">
+  <meta name="description" content="A little collection of memories from St George, 2026–2027.">
+  <title>St George — Our Memory Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="website.css">
+  <script src="website.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="St George memory book home"><span class="brand-mark">SG</span><span>St George <small>MEMORY BOOK · 2026—27</small></span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home">Home</a>
+	  <a class="nav-link active" href="#gallery">Gallery</a>
+	  <a class="nav-link active" href="#about">About</a>
+      <a class="nav-link" href="memories.html">Memories</a>
+      <a class="nav-link" href="adviser.html">Adviser</a>
+      <a class="nav-link" href="officers.html">Officers</a>
+      <a class="nav-link" href="student.html">Students</a>
+    </nav>
+    <a class="header-note" href="#gallery">A year to remember <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> OUR LITTLE CORNER OF THE WORLD</p>
+        <h1>Some years<br>stay <em>with us.</em></h1>
+        <p class="hero-description">A scrapbook of the people, small moments, and big laughs that made this school year ours.</p>
+        <a class="button-link" href="memories.html">Wander through <span>↗</span></a>
+        <div class="hero-caption"><span class="caption-line"></span> ST GEORGE · SCHOOL YEAR 2026—2027</div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="photo-frame hero-photo"><img src="photos/061a1b6c-5de7-44f4-b438-6c76773b02de.jfif" alt="A class memory from St George" fetchpriority="high"><span class="photo-tag">THE GOOD OLD DAYS</span></div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="sticker">made<br>of <span>memories</span> ✳</div>
+        <span class="hero-sparkle sparkle-one">✳</span><span class="hero-sparkle sparkle-two">✦</span>
+      </div>
+      <a class="scroll-cue" href="#memories" aria-label="Scroll to memories"><span></span> SCROLL A LITTLE</a>
+    </section>
+
+    <section class="memory-section section-wrap" id="memories">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span></span> THE LITTLE THINGS</p><h2>Collected <em>moments.</em></h2></div><p class="section-intro">Not every favorite memory fits in a photograph. Some live in the stories we keep telling.</p></div>
+      <div class="memory-grid">
+        <article class="memory-card memory-photo reveal" id="gallery">
+          <button class="image-button" type="button" aria-label="View class photo larger"><img src="photos/061a1b6c-5de7-44f4-b438-6c76773b02de.jfif" alt="Our St George section together" loading="lazy"><span class="image-open">↗</span></button>
+          <div class="card-meta"><span>01 — THE CLASS</span><span>TOGETHER, ALWAYS</span></div>
+          <h3>Our section, our story.</h3><p>One room, a hundred different personalities, and so many reasons to smile.</p>
+        </article>
+        <article class="memory-card note-card reveal"><span class="note-icon">✳</span><p class="eyebrow">A NOTE TO REMEMBER</p><blockquote>“The best part of this year was getting to make it together.”</blockquote><span class="note-signoff">WITH LOVE, YOUR CLASS</span><div class="note-doodle">✳</div></article>
+        <article class="memory-card moments-card reveal"><p class="eyebrow">THE THINGS WE'LL MISS</p><h3>Ordinary days,<br>extraordinary people.</h3><ul><li><span>01</span> Laughing when we should be quiet</li><li><span>02</span> The stories between every lesson</li><li><span>03</span> Showing up for one another</li></ul><span class="moments-stamp">2026<br>—27</span></article>
+      </div>
+    </section>
+
+    <section class="closing" id="about"><div class="closing-inner reveal"><p class="eyebrow"><span></span> TO EVERYONE WHO MADE IT OURS</p><h2>Here’s to the<br>next <em>chapter.</em></h2><p>We’ll carry a little piece of this year wherever we go.</p><a class="button-link button-light" href="#home">Back to the beginning <span>↑</span></a></div><div class="closing-flower">✳</div></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">SG</span><span>St George <small>MEMORY BOOK · 2026—27</small></span></a><span>MADE WITH A LOT OF HEART <b>♥</b></span><a href="#home">BACK TO TOP ↑</a></footer>
+
+  <dialog class="lightbox" aria-label="Expanded class photo"><button class="lightbox-close" type="button" aria-label="Close image">×</button><img src="061a1b6c-5de7-44f4-b438-6c76773b02de.jfif" alt="Our St George section together"></dialog>
+</body>
+</html>

@@ -1,0 +1,198 @@
+.officer-card .officer-review-open {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 4px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d9c99f;
+  background: #f2ead7;
+  color: #385247;
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+}
+
+.officer-card .officer-review-open span { color: #a98037; font-size: 14px; }
+.officer-card .officer-review-open:hover { transform: translateY(-2px); background: #294c43; color: #fff9ed; box-shadow: 0 8px 18px #263d3526; }
+.officer-card .officer-review-open:hover span { color: #e8cd83; }
+.officer-card .officer-review-open:focus-visible,
+.officer-id-close:focus-visible,
+.officer-id-flip:focus-visible,
+.officer-id-card:focus-visible { outline: 3px solid #d4b460; outline-offset: 4px; }
+
+.officer-id-dialog {
+  width: min(900px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.officer-id-dialog::backdrop { background: #101b18df; backdrop-filter: blur(8px); }
+.officer-id-dialog[open] .officer-id-panel { animation: officer-panel-arrive .45s cubic-bezier(.2,.8,.2,1) both; }
+
+.officer-id-panel {
+  position: relative;
+  padding: 27px clamp(17px, 4vw, 38px) 21px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 94% 5%, #d6c48d4d, transparent 25%), #f5f0e5;
+  border: 1px solid #fff9e9;
+  box-shadow: 0 28px 90px #08110f88;
+}
+
+.officer-id-panel-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.officer-id-panel-header p { margin: 0 0 6px; color: #456258; font-size: 7px; font-weight: 700; letter-spacing: 1.7px; }
+.officer-id-panel-header h2 { margin: 0; color: #283e36; font: 500 clamp(27px, 4vw, 38px)/1.05 var(--serif); letter-spacing: -1px; }
+.officer-id-panel-header h2 em { color: #a17a35; }
+
+.officer-id-close {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d4c7a6;
+  border-radius: 50%;
+  background: #fffaf0;
+  color: #355347;
+  cursor: pointer;
+  font-size: 22px;
+  transition: transform .2s;
+}
+
+.officer-id-close:hover { transform: rotate(90deg); }
+.officer-id-scene { perspective: 1600px; }
+.officer-id-card { width: 100%; aspect-ratio: 1.72 / 1; position: relative; cursor: pointer; outline: none; }
+.officer-id-card-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .85s cubic-bezier(.2,.75,.2,1); }
+.officer-id-card.is-flipped .officer-id-card-inner { transform: rotateY(180deg); }
+
+.officer-id-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  border: 1px solid #b49a5f;
+  border-radius: 9px;
+  box-shadow: 0 18px 38px #1c302b32;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.officer-id-front {
+  grid-template-columns: 31% 1fr;
+  grid-template-rows: 54px 1fr;
+  gap: 12px 21px;
+  padding: 15px 19px;
+  background: radial-gradient(circle at 95% 95%, #9a83531b 0 1px, transparent 2px) 0 0/13px 13px, linear-gradient(125deg, #fbf8ed, #e9e4d4);
+}
+
+.officer-id-front::after { content: ""; position: absolute; inset: 0 0 auto; height: 7px; background: linear-gradient(90deg, #173e36 0 74%, #bf994c 74% 89%, #e5d29c 89%); }
+.officer-id-brand { grid-column: 1/-1; display: flex; align-items: center; gap: 10px; position: relative; z-index: 1; border-bottom: 1px solid #b49a5f66; }
+.officer-id-seal { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border: 2px solid #dabd70; border-radius: 50%; outline: 1px solid #7c693a; outline-offset: -5px; background: #183f37; color: #f1d98d; font: 600 12px var(--serif); letter-spacing: -.5px; box-shadow: 0 3px 10px #263e3426; }
+.officer-id-brand > span:nth-child(2), .officer-id-back-brand > span:nth-child(2) { display: grid; gap: 3px; }
+.officer-id-brand strong { color: #21453b; font: 700 13px var(--sans); letter-spacing: 1.7px; }
+.officer-id-brand small { color: #9b7739; font-size: 6px; font-weight: 700; letter-spacing: 1.5px; }
+.officer-id-term { margin-left: auto; color: #6c765e; font-size: 7px; font-weight: 700; letter-spacing: 1.2px; }
+
+.officer-id-portrait { min-height: 0; position: relative; padding: 6px 6px 24px; background: #fffdf6; border: 1px solid #d4c7a6; box-shadow: 0 6px 16px #183f371c; }
+.officer-id-portrait img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; filter: saturate(.78) contrast(1.02); }
+.officer-id-portrait span { position: absolute; bottom: 7px; left: 0; right: 0; color: #56655b; text-align: center; font-size: 5px; font-weight: 700; letter-spacing: 1.1px; }
+.officer-id-details { min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 2px 23px 2px 0; position: relative; z-index: 1; }
+.officer-id-label, .officer-id-number, .officer-id-fields span, .officer-id-validity { font-size: 7px; font-weight: 700; letter-spacing: 1.4px; }
+.officer-id-label { color: #9a793d; }
+.officer-id-details h3 { max-width: 500px; margin: 5px 0 8px; color: #203a32; font: 600 clamp(23px, 3.6vw, 39px)/1.04 var(--serif); letter-spacing: -1px; overflow-wrap: anywhere; }
+.officer-id-number { color: #426359; }
+.officer-id-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; padding-top: 11px; border-top: 1px solid #b49a5f66; }
+.officer-id-fields div { display: grid; gap: 5px; min-width: 0; }
+.officer-id-fields span { color: #927541; font-size: 6px; }
+.officer-id-fields strong { color: #344940; font: 600 11px var(--sans); overflow-wrap: anywhere; }
+.officer-id-validity { margin-top: auto; padding-top: 12px; color: #65756a; font-size: 5px; letter-spacing: 1px; }
+.officer-id-hologram { position: absolute; right: 23px; bottom: 20px; color: #b99443; font-size: 20px; text-shadow: 0 1px #fff; }
+
+.officer-id-back {
+  grid-template-rows: auto 1fr auto;
+  gap: 11px;
+  padding: 17px 22px 19px;
+  background: radial-gradient(ellipse at 52% 52%, #477064 0, transparent 57%), linear-gradient(135deg, #173a34, #294c43 55%, #1b3e37);
+  transform: rotateY(180deg);
+}
+
+.officer-id-back::before { content: ""; position: absolute; inset: 7px; border: 1px solid #d6b96280; border-radius: 5px; pointer-events: none; }
+.officer-id-back-brand { display: flex; align-items: center; gap: 10px; position: relative; z-index: 1; }
+.officer-id-back-brand .officer-id-seal { background: linear-gradient(145deg, #f5e2a6, #c39842); color: #25463b; }
+.officer-id-back-brand strong { color: #fff9e9; font: 700 12px var(--sans); letter-spacing: 1.5px; }
+.officer-id-back-brand small { color: #dfc980; font-size: 6px; font-weight: 700; letter-spacing: 1.3px; }
+.officer-id-back-star { margin-left: auto; color: #e4c76e; font-size: 20px; }
+.officer-id-service { width: min(650px, 86%); margin: auto; padding: 17px 25px; position: relative; z-index: 1; border: 1px solid #d8bd6d75; background: #f7f1e2; box-shadow: 0 10px 23px #0b1b1740; text-align: center; }
+.officer-id-service > span { color: #9c7937; font-size: 7px; font-weight: 700; letter-spacing: 1.7px; }
+.officer-id-service p { margin: 8px 0 0; color: #29473e; font: italic 500 clamp(15px, 2.5vw, 24px)/1.35 var(--serif); }
+.officer-id-back-bottom { display: flex; align-items: end; justify-content: space-between; gap: 20px; position: relative; z-index: 1; }
+.officer-id-signature { width: min(240px, 45%); display: grid; gap: 4px; }
+.officer-id-signature small { color: #ddc87f; font-size: 6px; font-weight: 700; letter-spacing: 1.4px; }
+.officer-id-signature strong { min-height: 17px; color: #fff8e8; font: italic 15px var(--serif); }
+.officer-id-signature span { border-top: 1px solid #dec7799e; }
+.officer-id-back-number { color: #d9c68f; font-size: 7px; font-weight: 700; letter-spacing: 1.5px; }
+.officer-id-guilloche { position: absolute; right: -12px; bottom: 50%; color: #d8c0700c; font-size: clamp(26px, 6vw, 72px); font-weight: 700; letter-spacing: 8px; white-space: nowrap; transform: rotate(-12deg); pointer-events: none; }
+.officer-id-actions { display: flex; justify-content: center; margin-top: 15px; position: relative; z-index: 1; }
+.officer-id-flip { min-width: 142px; min-height: 39px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid #b7a16b; background: #fffaf0; color: #315145; cursor: pointer; font: 700 9px var(--sans); letter-spacing: .5px; transition: background .2s, color .2s, transform .2s; }
+.officer-id-flip:hover { transform: translateY(-1px); background: #284a40; color: #fff9ea; }
+.officer-id-flip b { color: #ae873b; font-size: 15px; font-weight: 400; }
+.officer-id-hint { margin: 9px 0 0; color: #8b8979; text-align: center; font-size: 8px; }
+
+@keyframes officer-panel-arrive { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 700px) {
+  .officer-id-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
+  .officer-id-panel { padding: 20px 13px 15px; }
+  .officer-id-panel-header { margin-bottom: 13px; }
+  .officer-id-card { aspect-ratio: 1.4 / 1; }
+  .officer-id-front { grid-template-columns: 31% 1fr; grid-template-rows: 43px 1fr; gap: 9px 12px; padding: 11px; }
+  .officer-id-seal { width: 30px; height: 30px; flex-basis: 30px; font-size: 10px; }
+  .officer-id-brand { gap: 7px; }
+  .officer-id-brand strong { font-size: 9px; letter-spacing: .9px; }
+  .officer-id-brand small { font-size: 5px; letter-spacing: .7px; }
+  .officer-id-term { font-size: 5px; letter-spacing: .5px; }
+  .officer-id-portrait { padding: 4px 4px 19px; }
+  .officer-id-portrait span { bottom: 5px; font-size: 4px; }
+  .officer-id-details { padding-right: 17px; }
+  .officer-id-label, .officer-id-number { font-size: 5px; letter-spacing: .8px; }
+  .officer-id-details h3 { margin: 5px 0; font-size: clamp(16px, 4.8vw, 25px); letter-spacing: -.5px; }
+  .officer-id-fields { gap: 7px; margin-top: 9px; padding-top: 7px; }
+  .officer-id-fields span { font-size: 5px; letter-spacing: .6px; }
+  .officer-id-fields strong { font-size: 8px; }
+  .officer-id-validity { padding-top: 7px; font-size: 4px; letter-spacing: .6px; }
+  .officer-id-hologram { right: 14px; bottom: 12px; font-size: 13px; }
+  .officer-id-back { gap: 7px; padding: 11px 14px 10px; }
+  .officer-id-back-brand .officer-id-seal { width: 27px; height: 27px; flex-basis: 27px; }
+  .officer-id-back-brand strong { font-size: 9px; letter-spacing: .8px; }
+  .officer-id-back-brand small { font-size: 5px; letter-spacing: .7px; }
+  .officer-id-back-star { font-size: 15px; }
+  .officer-id-service { width: 95%; padding: 10px 14px; }
+  .officer-id-service > span { font-size: 5px; letter-spacing: 1px; }
+  .officer-id-service p { margin-top: 5px; font-size: clamp(13px, 3.6vw, 18px); }
+  .officer-id-signature small { font-size: 5px; letter-spacing: .8px; }
+  .officer-id-signature strong { font-size: 12px; }
+  .officer-id-back-number { font-size: 5px; letter-spacing: .8px; }
+}
+
+@media (max-width: 390px) {
+  .officer-id-card { aspect-ratio: 1.3 / 1; }
+  .officer-id-front { grid-template-columns: 29% 1fr; grid-template-rows: 38px 1fr; gap: 7px 9px; padding: 8px; }
+  .officer-id-details { padding-right: 13px; }
+  .officer-id-details h3 { font-size: 16px; }
+  .officer-id-back { padding: 8px 10px; }
+  .officer-id-service { width: 97%; padding: 8px 10px; }
+  .officer-id-service p { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .officer-id-dialog[open] .officer-id-panel { animation: none; }
+  .officer-id-card-inner, .officer-card .officer-review-open, .officer-id-close, .officer-id-flip { transition: none; }
+}
